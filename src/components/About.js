@@ -27,7 +27,7 @@ export default function About() {
 
   return (
     <main className="relative">
-      <img src={workspace} alt="Work Station" className="absolute w-full" />
+      <img src={workspace} alt="Work Space" className="fixed w-full" />
       <div className="p-10 lg:pt-48 container mx-auto relative">
         <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20">
           <img
@@ -40,7 +40,7 @@ export default function About() {
               Hey there. I'm{" "}
               <span className="text-green-100">{author.name}</span>
             </h1>
-            <p className="text-green-200 text-lg">{author.bio}</p>
+            <p className="text-green-200 text-lg overflow">{author.bio}</p>
           </div>
         </section>
       </div>
