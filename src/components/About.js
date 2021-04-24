@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
 import imageUrlBuilder from "@sanity/image-url";
 import workspace from "../workspace.jpg";
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
 const builder = imageUrlBuilder(sanityClient);
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: #38A169;
+`;
 function urlFor(source) {
   return builder.image(source);
 }
@@ -23,13 +30,12 @@ export default function About() {
       .catch(console.error);
   }, []);
 
-  if (!author) return <div>Loading...</div>;
 
   return (
     <main className="relative">
       <img src={workspace} alt="Work Space" className="fixed w-full" />
       <div className="p-10 lg:pt-48 container mx-auto relative">
-        <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20">
+        {!author ? <ClipLoader color="#38A169" css={override} size={150} /> : <section className="bg-green-800 rounded-lg shadow-2xl lg:flex p-20">
           <img
             src={urlFor(author.authorImage).url()}
             className="rounded w-32 h-32 lg:w-64 lg:h-64 mr-8"
@@ -43,7 +49,7 @@ export default function About() {
             <p className="text-green-200 text-lg overflow">{author.bio}</p>
           </div>
         </section>
-      </div>
+        }</div>
     </main>
   );
 }

@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import sanityClient from "../client.js";
+import ClipLoader from "react-spinners/ClipLoader";
+import { css } from "@emotion/core";
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: #38A169;
+`;
 
 export default function Project() {
   const [projectData, setProjectData] = useState(null);
@@ -28,7 +35,7 @@ export default function Project() {
         <h2 className="text-lg text-gray-600 flex justify-center mb-12">
           Welcome to my projects page!
         </h2>
-        <section className="grid grid-cols-2 gap-8">
+        {!projectData ? <ClipLoader color="#38A169" css={override} size={150} /> : <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
               <article className="relative rounded-lg shadow-xl bg-white p-16">
@@ -73,7 +80,7 @@ export default function Project() {
               </article>
             ))}
         </section>
-      </section>
+        }</section>
     </main>
   );
 }
