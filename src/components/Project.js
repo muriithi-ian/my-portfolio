@@ -38,7 +38,7 @@ export default function Project() {
         {!projectData ? <ClipLoader color="#38A169" css={override} size={150} /> : <section className="grid grid-cols-2 gap-8">
           {projectData &&
             projectData.map((project, index) => (
-              <article className="relative rounded-lg shadow-xl bg-white p-16">
+              <article className="relative rounded-lg shadow-xl bg-white p-16 transform transition ease-in-out duration-500  hover:scale-105 hover:z-10">
                 <h3 className="text-gray-800 text-3xl font-bold mb-2 hover:text-red-700">
                   <a
                     href={project.link}
