@@ -11,7 +11,7 @@ export default function Home() {
       />
       <section className="fixed flex justify-center min-h-screen  lg:pt-64 px-8">
         <h1 className="text-4xl text-green-100 font-bold cursive leading-none lg:leading-snug home-name">
-          Aloha. I'm Muriithi Ian. An Innovative Programmer and Internet Entrepreneur striving to unify the world through code. A creative thinker, proficient in software development and working with technologies for over
+          Aloha. I'm Muriithi Ian.
         </h1>
       </section>
     </main>
