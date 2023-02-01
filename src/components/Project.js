@@ -9,12 +9,12 @@ const override = css`
 `;
 
 export default function Project() {
-  const [projectData, setProjectData] = useState(null);
+	const [projectData, setProjectData] = useState(null);
 
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "project"]{
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "project"]{
           title,
           date,
           place,
@@ -23,12 +23,12 @@ export default function Project() {
           link,
           tags
       }`
-      )
-      .then((data) => setProjectData(data))
-      .catch(console.error);
-  }, []);
+			)
+			.then((data) => setProjectData(data))
+			.catch(console.error);
+	}, []);
 
-  return (
+	return (
 		<main className="bg-green-100 min-h-screen p-12">
 			<section className="container mx-auto">
 				<h1 className="text-5xl flex justify-center cursive">My Projects</h1>
@@ -65,16 +65,14 @@ export default function Project() {
 											<strong className="font-bold">Type</strong>:{" "}
 											{project.projectType}
 										</span>
-										<p>
-										<strong className="font-bold">Tags</strong>:{" "}
-											{project.tags.map(tag=>(
-												<span>tag{" | "}</span>
-											)
-												
-											)}
-										</p>
 										<p className="my-6 text-lg text-gray-700 leading-relaxed">
 											{project.description}
+										</p>
+										<p>
+											<strong className="font-bold">Tags</strong>:{" | "}
+											{project.tags.map((tag) => (
+												<span>{`${tag} | `}</span>
+											))}
 										</p>
 										<a
 											href={project.link}
