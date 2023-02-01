@@ -39,14 +39,21 @@ export default function NavBar() {
 				</nav>
 				<div className="inline-flex py-3 px-3 my-6">
 					<SocialIcon
-						url="https://www.upwork.com/freelancers/~01795c67df3f2f4634"
+						url="https://www.linkedin.com/in/ian-muriithi-5a2658129/"
 						className="mr-4"
 						target="_blank"
 						fgColor="#fff"
 						style={{ height: 35, width: 35 }}
 					/>
 					<SocialIcon
-						url="https://www.linkedin.com/in/ian-muriithi-5a2658129/"
+						url="https://github.com/muriithi-ian"
+						className="mr-4"
+						target="_blank"
+						fgColor="#fff"
+						style={{ height: 35, width: 35 }}
+					/>
+					<SocialIcon
+						url="https://www.upwork.com/freelancers/~01795c67df3f2f4634"
 						className="mr-4"
 						target="_blank"
 						fgColor="#fff"

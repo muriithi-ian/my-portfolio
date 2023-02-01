@@ -14,6 +14,7 @@ export default function Home() {
           Aloha. I'm Muriithi Ian.
         </h1>
       </section>
+      
     </main>
   );
 }

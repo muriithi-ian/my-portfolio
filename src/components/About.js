@@ -6,32 +6,32 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/core";
 const builder = imageUrlBuilder(sanityClient);
 const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: #38A169;
+	display: block;
+	margin: 0 auto;
+	border-color: #38a169;
 `;
 function urlFor(source) {
-  return builder.image(source);
+	return builder.image(source);
 }
 
 export default function About() {
-  const [author, setAuthor] = useState(null);
+	const [author, setAuthor] = useState(null);
 
-  useEffect(() => {
-    sanityClient
-      .fetch(
-        `*[_type == "author"]{
+	useEffect(() => {
+		sanityClient
+			.fetch(
+				`*[_type == "author"]{
           name,
-          "bio": bio[0].children[0].text,
+          bio,
           "authorImage": image.asset->url
       }`
-      )
-      .then((data) => setAuthor(data[0]))
-      .catch(console.error);
-  }, []);
+			)
+			.then((data) => setAuthor(data[0]))
+			.catch(console.error);
+	}, []);
 
 
-  return (
+	return (
 		<main className="relative">
 			<img
 				src={workspace}
@@ -53,9 +53,13 @@ export default function About() {
 								Hey there. I'm{" "}
 								<span className="text-green-100">{author.name}</span>
 							</h1>
-							<p className="text-green-200 text-lg overflow-auto">
-								{author.bio}
-							</p>
+							{author?.bio.map((bio) => (
+								<p className="text-green-200 text-lg overflow-auto text-justify" key={bio["_key"]}>
+									{bio['children'][0]['text']+"\n"}
+								</p>
+								//q: align text center tailwind css
+								//a: https://stackoverflow.com/questions/64800000/how-to-align-text-center-in-tailwind-css
+							))}
 						</div>
 					</section>
 				)}
