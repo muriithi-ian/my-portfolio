@@ -65,6 +65,14 @@ export default function Project() {
 											<strong className="font-bold">Type</strong>:{" "}
 											{project.projectType}
 										</span>
+										<p>
+										<strong className="font-bold">Tags</strong>:{" "}
+											{project.tags.map(tag=>(
+												<span>tag{" | "}</span>
+											)
+												
+											)}
+										</p>
 										<p className="my-6 text-lg text-gray-700 leading-relaxed">
 											{project.description}
 										</p>
